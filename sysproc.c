@@ -101,3 +101,9 @@ sys_nps(void)
 {
   return nps();
 }
+
+int
+sys_mps(void)
+{
+  return mps();
+}

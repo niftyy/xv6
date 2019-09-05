@@ -589,3 +589,23 @@ int nps()
 
   return 23;
 }
+
+int mps()
+{
+  struct proc *p;
+
+  // Enable interrupts on this processor.
+  sti();
+
+  // loop over process table.
+  acquire(&ptable.lock);
+  int maxPid= 0;
+  for (p = ptable.proc; p < &ptable.proc[NPROC]; p++)
+  {
+    maxPid = maxPid > p->pid ? maxPid : p->pid;
+  }
+  cprintf("Max Pid: %d\n", maxPid);
+  release(&ptable.lock);
+
+  return 24;
+}

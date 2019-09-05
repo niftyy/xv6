@@ -25,6 +25,7 @@ int sleep(int);
 int uptime(void);
 int cps(void);
 int nps(void);
+int mps(void);
 
 // ulib.c
 int stat(const char*, struct stat*);

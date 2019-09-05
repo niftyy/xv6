@@ -122,6 +122,7 @@ void            wakeup(void*);
 void            yield(void);
 int				cps(void);
 int             nps(void);
+int             mps(void);
 // swtch.S
 void            swtch(struct context**, struct context*);
 
