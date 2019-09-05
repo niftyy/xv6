@@ -564,3 +564,28 @@ cps()
 
   return 22;
 }
+
+int nps()
+{
+  struct proc *p;
+
+  // Enable interrupts on this processor.
+  sti();
+
+  // loop over process table.
+  acquire(&ptable.lock);
+  int count = 0;
+  for (p = ptable.proc; p < &ptable.proc[NPROC]; p++)
+  {
+    if (p->state == SLEEPING)
+      count++;
+    else if (p->state == RUNNING)
+      count++;
+    else if (p->state == RUNNABLE)
+      count++;
+  }
+  cprintf("Number of processes: %d\n", count);
+  release(&ptable.lock);
+
+  return 23;
+}
