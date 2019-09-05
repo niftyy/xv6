@@ -19,3 +19,6 @@ sudo port install i386-elf-gcc gdb
 cd xv6
 make qemu clean
 ```
+## Adding Systemcalls
+
+[How to add new systemcall](https://github.com/niftyy/xv6/blob/master/adding-system-call.md)
